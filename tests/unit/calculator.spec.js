@@ -25,4 +25,10 @@ describe('App.vue', () => {
 		wrapper.vm.subtract('4');
 		expect(wrapper.vm.runningTotal).to.equal(3);
 	});
+
+	it('should be able to multiply three by fifteen', () => {
+		wrapper.vm.previousTotal = 3;
+		wrapper.vm.multiply('5');
+		expect(wrapper.vm.runningTotal).to.equal(15);
+	});
 });
