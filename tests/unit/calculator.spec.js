@@ -37,4 +37,35 @@ describe('App.vue', () => {
 		wrapper.vm.divide(7);
 		expect(wrapper.vm.runningTotal).to.equal(3);
 	});
+
+	it('should be able to concatenate multiple number clicks', () => {
+		wrapper.vm.numberClick(7);
+		wrapper.vm.numberClick(7);
+		wrapper.vm.numberClick(9);
+		wrapper.vm.numberClick(0);
+		expect(wrapper.vm.runningTotal).to.equal(7790);
+	});
+
+	it('should be able to chain multiple operations together', () => {
+		wrapper.vm.numberClick(7);
+		wrapper.vm.operatorClick('+');
+		wrapper.vm.numberClick(9);
+		wrapper.vm.operatorClick('-');
+		wrapper.vm.numberClick(10);
+		wrapper.vm.operatorClick('*');
+		wrapper.vm.numberClick(4);
+		wrapper.vm.operatorClick('/');
+		wrapper.vm.numberClick(6);
+		wrapper.vm.operatorClick('=');
+
+		expect(wrapper.vm.runningTotal).to.equal(4);
+	});
+
+	// it('should be able to clear running total without changing previous total', () => {
+	// 	wrapper.vm.numberClick(7);
+	// 	wrapper.vm.numberClick(7);
+	// 	wrapper.vm.numberClick(9);
+	// 	wrapper.vm.numberClick(0);
+	// 	expect(wrapper.vm.runningTotal).to.equal(7790);
+	// });
 });
