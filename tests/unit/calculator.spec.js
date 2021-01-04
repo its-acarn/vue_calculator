@@ -19,4 +19,10 @@ describe('App.vue', () => {
 		wrapper.vm.add('1');
 		expect(wrapper.vm.runningTotal).to.equal(5);
 	});
+
+	it('should be able to subtract four from seven', () => {
+		wrapper.vm.previousTotal = 7;
+		wrapper.vm.subtract('4');
+		expect(wrapper.vm.runningTotal).to.equal(3);
+	});
 });
