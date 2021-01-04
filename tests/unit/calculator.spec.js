@@ -61,11 +61,12 @@ describe('App.vue', () => {
 		expect(wrapper.vm.runningTotal).to.equal(4);
 	});
 
-	// it('should be able to clear running total without changing previous total', () => {
-	// 	wrapper.vm.numberClick(7);
-	// 	wrapper.vm.numberClick(7);
-	// 	wrapper.vm.numberClick(9);
-	// 	wrapper.vm.numberClick(0);
-	// 	expect(wrapper.vm.runningTotal).to.equal(7790);
-	// });
+	it('should be able to clear running total without changing previous total', () => {
+		wrapper.vm.numberClick(7);
+		wrapper.vm.operatorClick('+');
+		wrapper.vm.numberClick(9);
+		wrapper.vm.operatorClick('=');
+		wrapper.vm.clearClick();
+		expect(wrapper.vm.previousTotal).to.equal(16);
+	});
 });
